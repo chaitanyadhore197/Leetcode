@@ -1,0 +1,14 @@
+class Solution:
+
+    def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        #length = self.size(head)
+        if head.next == None:
+            return
+        fast,slow = head,head
+        prvNode = ListNode()
+        while fast != None and fast.next != None:
+            prvNode = slow
+            slow = slow.next
+            fast = fast.next.next
+        prvNode.next = slow.next
+        return head
